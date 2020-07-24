@@ -15,7 +15,7 @@ class Usuarios {
         }
     }
 
-    public function cadastrar($nome, $telefone, $email, $senha) {
+    public function cadastrar($nome, $telefone, $email, $senha) { //Método para o usuário se cadastrar
 
         global $pdo;
         //verificar se ja existe o email cadastrado
@@ -42,7 +42,7 @@ class Usuarios {
         }
     }
 
-    public function logar($email, $senha) {
+    public function logar($email, $senha) { //Método para o usuário logar
 
         global $pdo;
         //Verificar se o email e senha estão cadastrados
