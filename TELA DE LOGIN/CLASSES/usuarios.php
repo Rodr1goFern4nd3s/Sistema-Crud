@@ -46,7 +46,7 @@ class Usuarios {
 
         global $pdo;
         //Verificar se o email e senha estão cadastrados
-        $sql = $pdo->prepape("SELECT id_usuario FROM usuarios WHERE email = :email AND senha = :senha");
+        $sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :email AND senha = :senha");
         $sql->bindValue(":email", $email);
         $sql->bindValue(":senha", md5($senha));
         $sql->execute();

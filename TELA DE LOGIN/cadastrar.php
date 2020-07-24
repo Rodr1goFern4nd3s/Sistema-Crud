@@ -15,7 +15,7 @@ $usuario = new Usuarios()
 <body>
 
     <div id="corpo-form">
-        <h1>Cadastrar</h1>
+        <h1>Cadastre-se</h1>
         <form method="POST">
             <input type="text" name="nome" placeholder="Nome Completo" maxlength="30">
             <input type="text" name="telefone" placeholder="Telefone" maxlength="30">
@@ -23,6 +23,7 @@ $usuario = new Usuarios()
             <input type="password" name="senha" placeholder="Senha" maxlength="15">
             <input type="password" name="confSenha" placeholder="Confirmar Senha" maxlength="15">
             <input type="submit" value="CADASTRAR">
+            <a href="index.php"><strong>Acesse!</strong></a>
         </form>
     </div>
     <?php
@@ -35,6 +36,7 @@ $usuario = new Usuarios()
     $email = addslashes($_POST['email']);
     $senha = addslashes($_POST['senha']);
     $confirmarSenha = addslashes($_POST['confSenha']);
+    
 
     //Verifica se está tudo preenchido
     if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha)) {
