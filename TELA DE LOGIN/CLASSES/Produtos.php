@@ -47,6 +47,13 @@ class Produto {
         }
     }
 
+    public function excluirProduto($id) {
+
+        $cmd = $this->pdo->prepare("DELETE FROM produtos WHERE id_produto = :id");
+        $cmd->bindValue(":id", $id);
+        $cmd->execute();
+    }
+
 }
 
 ?>

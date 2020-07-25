@@ -56,6 +56,8 @@ $p = new Produto("login","localhost", "root", "");
             <label for="categoria">Categoria</label>
             <input type="text" name="categoria" id="categoria">
             <input type="submit" value="Cadastrar">
+            <br>
+            <a href="sair.php">SAIR</a>
         </form>
     </section>
     <section id="direita">
@@ -81,7 +83,10 @@ $p = new Produto("login","localhost", "root", "");
                     }
                 }
                 ?>
-                    <td><a href="#">Editar</a><a href="#">Excluir</a></td>
+                    <td>
+                        <a href="#">Editar</a>
+                        <a href="areaPrivada.php?id=<?php echo $dados[$i]['id_produto'];?>">Excluir</a>
+                    </td>
                 <?php
                 echo "</tr>";
             }
@@ -98,33 +103,13 @@ $p = new Produto("login","localhost", "root", "");
 </body>
 </html>
 
+<?php 
 
+if(isset($_GET['id'])) {
 
+    $id_produto = addslashes($_GET['id']);
+    $p->excluirProduto($id_produto);
+    header("location: areaPrivada.php");
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="sair.php">SAIR</a>
+?>
