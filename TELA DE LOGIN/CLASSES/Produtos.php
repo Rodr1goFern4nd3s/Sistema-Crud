@@ -54,6 +54,28 @@ class Produto {
         $cmd->execute();
     }
 
+    //Método para editar levando os dados para a tela da esquerda
+    public function buscarProdutos($id) {
+
+        $res = array();
+        $cmd = $this->pdo->prepare("SELECT * FROM produtos WHERE id_produto = :id");
+        $cmd->bindValue(":id", $id);
+        $cmd->execute();
+        $res = $cmd->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function atualizarDados($id, $nome, $preco, $categoria) {
+
+        $cmd = $this->pdo->prepare("UPDATE produtos SET nome = :nome, preco = :preco, categoria = :categoria WHERE id_produto = :id");
+        $cmd->bindValue(":id", $id);
+        $cmd->bindValue(":nome", $nome);
+        $cmd->bindValue(":preco", $preco);
+        $cmd->bindValue(":categoria", $categoria);
+        $cmd->execute();
+
+    }
+
 }
 
 ?>
